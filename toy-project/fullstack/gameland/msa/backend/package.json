@@ -1,0 +1,24 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "http-proxy-middleware": "^3.0.3",
+    "@gatling.io/core": "3.13.402",
+    "@gatling.io/http": "3.13.402"
+  },
+  "devDependencies": {
+    "@gatling.io/cli": "3.13.402",
+    "prettier": "3.5.3",
+    "rimraf": "6.0.1"
+  }
+}
