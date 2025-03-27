@@ -15,8 +15,8 @@ npm i express axios
 ```js
 const axios = require("axios");
 
-const BASE_URL = ``; // 숫자야구 서버 URL
-const USER_NAME = "student001";
+const BASE_URL = ""; // 숫자야구 서버 URL
+const USER_NAME = ""; // 유저 이름 (ex: student001)
 
 async function guess(value) {
   try {
