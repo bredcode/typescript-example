@@ -38,16 +38,16 @@ async function checkHealth() {
 setInterval(checkHealth, healthCheckInterval);
 checkHealth(); // 서버 시작 시 한 번 실행
 
-// 로드 밸런서 미들웨어: 건강한 서버 중 하나를 라운드 로빈 방식으로 선택하여 프록시 요청을 보냅니다.
+// healthy한 서버 중 하나를 라운드 로빈 방식으로 선택하여 프록시 요청을 보냅니다.
 app.use((req, res) => {
-  // 건강한 서버 목록 필터링
+  // healthy한 서버 목록 필터링
   const healthyServers = backendServers.filter((server) => server.healthy);
   if (healthyServers.length === 0) {
     res.status(503).send("No backend servers are healthy");
     return;
   }
 
-  // 라운드 로빈 방식으로 건강한 서버 선택
+  // 라운드 로빈 방식으로 healthy한 서버 선택
   const target = healthyServers[currentIndex % healthyServers.length].url;
   currentIndex++;
 
@@ -58,7 +58,7 @@ app.use((req, res) => {
   });
 });
 
-// 로드 밸런서 실행 (포트 3000)
+// Health checker 실행 (포트 3000)
 app.listen(3000, () => {
-  console.log("로드 밸런서가 포트 3000에서 실행 중입니다.");
+  console.log("HealthChecker가 포트 3000에서 실행 중입니다.");
 });
