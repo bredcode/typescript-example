@@ -32,3 +32,5 @@ try {
 } catch (error) {
   console.error("Invalid token:", error.message);
 }
+
+console.log(process.env.HELLO_WORLD);
