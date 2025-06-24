@@ -22,7 +22,7 @@ async function guess(value) {
 // 알고리즘 작성
 async function launch() {
   let low = 1;
-  let high = 1000000;
+  let high = 1000;
 
   while (low <= high) {
     const mid = Math.floor((low + high) / 2);

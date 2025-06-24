@@ -3,7 +3,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const MIN = 1;
-const MAX = 1000000;
+const MAX = 1000;
 
 let secretNumber = Math.floor(Math.random() * (MAX - MIN + 1)) + MIN;
 let logs = {}; // 유저별 기록
@@ -47,11 +47,19 @@ app.get("/guess", (req, res) => {
 // 랭킹 상태 확인
 app.get("/status", (req, res) => {
   const rankings = Object.entries(logs)
-    .filter(([_, log]) => log.solved)
-    .sort((a, b) => a[1].count - b[1].count || a[1].time - b[1].time)
+    .sort((a, b) => {
+      const logA = a[1];
+      const logB = b[1];
+
+      if (logA.solved !== logB.solved) {
+        return logB.solved - logA.solved;
+      }
+
+      return logA.count - logB.count || logA.time - logB.time;
+    })
     .map(([name, log], idx) => ({
       rank: idx + 1,
-      user: name,
+      user: `${name} - ${log.solved ? "성공" : "실패"}`,
       attempts: log.count,
       time: `${log.time}s`,
     }));

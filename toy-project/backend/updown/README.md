@@ -1,8 +1,8 @@
 ### 사전 작업
 
 ```shell
-mkdir strike-and-ball
-cd strike-and-ball
+mkdir up-down
+cd up-down
 npm init -y
 npm i express axios
 ```
