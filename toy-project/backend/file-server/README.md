@@ -66,8 +66,8 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // 파일 업로드 라우트
-// upload.single('file'): multer 미들웨어를 사용하여 file이라는 이름의 단일 파일을 업로드
-app.post("/upload", upload.single("file"), (req, res) => {
+// upload.any(): multer 미들웨어를 사용하여 어떤 이름이든 허용
+app.post("/upload", upload.any(), (req, res) => {
   res.send("파일 업로드 성공");
 });
 
