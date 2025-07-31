@@ -47,6 +47,8 @@ npm i multer
 
 [코드]
 
+- file upload시, fieldname을 이용한 예시
+
 ```js
 const express = require("express");
 const multer = require("multer");
@@ -71,10 +73,36 @@ app.post("/upload", upload.any(), (req, res) => {
   res.send("파일 업로드 성공");
 });
 
-// 정적 파일 제공 미들웨어
-// express.static('uploads'): express.static은 정적 파일을 제공하는 Express.js의 내장 미들웨어
-// uploads 폴더의 파일을 정적 파일로 제공
-app.use("/uploads", express.static("uploads"));
+app.listen(port, () => {
+  console.log(`서버가 http://localhost:${port} 에서 실행 중입니다.`);
+});
+```
+
+- file upload시, originalname을 이용한 예시
+
+```js
+const express = require("express");
+const multer = require("multer");
+const path = require("path");
+
+const app = express();
+const port = 3000;
+
+// 파일 저장 경로 및 이름 설정
+const storage = multer.diskStorage({
+  destination: "./uploads/",
+  filename: function (req, file, cb) {
+    cb(null, file.originalname + "-" + Date.now() + path.extname(file.originalname));
+  },
+});
+
+const upload = multer({ storage: storage });
+
+// 파일 업로드 라우트
+// upload.any(): multer 미들웨어를 사용하여 어떤 이름이든 허용
+app.post("/upload", upload.any(), (req, res) => {
+  res.send("파일 업로드 성공");
+});
 
 app.listen(port, () => {
   console.log(`서버가 http://localhost:${port} 에서 실행 중입니다.`);
@@ -96,8 +124,6 @@ app.listen(port, () => {
 **Headers**: Content-Type은 form-data를 선택하면 자동으로 설정되므로 직접 설정할 필요가 없습니다.
 
 ---
-
-key를 사용하지 않고 하려면 `file.fieldname -> file.originalname`로 바꾸어보자
 
 ### 퀴즈
 
