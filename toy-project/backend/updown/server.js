@@ -3,7 +3,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const MIN = 1;
-const MAX = 1000;
+const MAX = 100;
 
 let secretNumber = Math.floor(Math.random() * (MAX - MIN + 1)) + MIN;
 let logs = {}; // 유저별 기록
