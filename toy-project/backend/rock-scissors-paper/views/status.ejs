@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>가위바위보 게임</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>✊✋✌️ 가위바위보 게임</h1>
+
+    <form method="GET" action="/play">
+      <button name="choice" value="rock">✊ 바위</button>
+      <button name="choice" value="paper">✋ 보</button>
+      <button name="choice" value="scissors">✌️ 가위</button>
+    </form>
+
+    <% if (result) { %>
+    <h2>당신: <%= result.user %> / 서버: <%= result.server %></h2>
+    <% if (result.outcome === "win") { %>
+    <p style="color: green">🎉 당신이 이겼어요!</p>
+    <% } else if (result.outcome === "lose") { %>
+    <p style="color: red">😭 졌어요...</p>
+    <% } else { %>
+    <p>😐 비겼어요!</p>
+    <% } %> <% } %>
+  </body>
+</html>
