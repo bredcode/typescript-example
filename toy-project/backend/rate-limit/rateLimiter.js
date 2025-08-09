@@ -21,7 +21,7 @@ module.exports = function rateLimiter() {
 
     if (bucket.tokens < 1) {
       // 남은 토큰 없음 → 429 응답
-      res.setHeader("Retry-After", Math.ceil(1 / refillRate));
+      res.setHeader("Retry-After", Math.ceil(1 / refill));
       return res.status(429).json({ error: "Too Many Requests" });
     }
 

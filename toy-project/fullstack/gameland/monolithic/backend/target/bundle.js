@@ -2891,8 +2891,8 @@ var gatling = (() => {
   );
   var lotto_gatling_default = (0, import_core.simulation)((setUp) => {
     setUp(
+      // 10초 동안 최대 1000명의 유저를 점진적으로 만들어 요청
       lottoScenario.injectOpen((0, import_core.rampUsers)(1e3).during(10))
-      // 10초 동안 1000명의 유저 요청
     ).protocols(httpProtocol);
   });
   return __toCommonJS(stdin_exports);

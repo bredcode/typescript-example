@@ -1,4 +1,5 @@
 // npx gatling run --simulation lotto
+// src에서 진행 필요
 
 import { simulation, scenario, exec, pause, rampUsers } from "@gatling.io/core";
 import { http, status } from "@gatling.io/http";
@@ -17,6 +18,7 @@ const lottoScenario = scenario("Lotto Load Test").exec(
 // 🏗 테스트 설정
 export default simulation((setUp) => {
   setUp(
-    lottoScenario.injectOpen(rampUsers(1000).during(10)) // 10초 동안 1000명의 유저 요청
+    // 10초 동안 최대 1000명의 유저를 점진적으로 만들어 요청
+    lottoScenario.injectOpen(rampUsers(1000).during(10))
   ).protocols(httpProtocol);
 });

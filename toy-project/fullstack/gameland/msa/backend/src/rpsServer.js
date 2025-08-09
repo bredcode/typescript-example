@@ -8,6 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
+  console.log("RPS API 요청 들어옴...");
   const choices = ["rock", "paper", "scissors"];
   const result = choices[Math.floor(Math.random() * choices.length)];
   res.status(200).json({ game: "rps", result });

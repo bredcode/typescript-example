@@ -8,6 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
+  console.log("UpDown API 요청 들어옴...");
   const secretNumber = Math.floor(Math.random() * 100) + 1;
   res.status(200).json({ game: "updown", number: secretNumber });
 });
