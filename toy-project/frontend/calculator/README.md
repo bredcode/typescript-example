@@ -34,8 +34,6 @@ calculator/
 
 ## 1단계: JS를 이용한 계산기 만들기
 
-**문제**: 먼저 React를 쓰지 않고, 단순 JS/TSX 컴포넌트 안에서 문자열 입력으로 `+`에서 문자열 결합이 나타나도록 의도적으로 작성한다.
-
 `src/App.tsx`는 그대로 두고 `src/App.jsx`를 하나 추가로 만들어 작성:  
 (이때, main.tsx에서 `import App from "./App.tsx";` -> `import App from "./App.jsx";`로 변경)
 
