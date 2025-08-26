@@ -8,7 +8,7 @@ App.tsx
 
 ```tsx
 import "./App.css";
-import Tab from "./components/MirrorInput";
+import MirrorInput from "./components/MirrorInput";
 
 function App() {
   return (
@@ -29,9 +29,7 @@ import React, { useState, type ChangeEvent } from "react";
 function MirrorInput() {
   const [text, setText] = useState(""); // useState type 선언하기
 
-  const handleChange = (
-    e: any /** ChangeEvent<HTMLInputElement> 타입 선언하기 */
-  ) => {
+  const handleChange = (e: any /** ChangeEvent<HTMLInputElement> 타입 선언하기 */) => {
     setText(e.target.value);
   };
 
