@@ -37,7 +37,11 @@ src/components/Tab.tsx
 ```tsx
 import { useState } from "react";
 
-const tabs; // tab data 정의
+const tabs: Tab[] = [
+  { id: 1, label: "탭 1", content: "첫 번째 탭 내용" },
+  { id: 2, label: "탭 2", content: "두 번째 탭 내용" },
+  { id: 3, label: "탭 3", content: "세 번째 탭 내용" },
+];
 
 function Tab() {
   const [activeTab, setActiveTab] = useState<number>(1);
