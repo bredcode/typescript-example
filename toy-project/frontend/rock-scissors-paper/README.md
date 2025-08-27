@@ -17,9 +17,9 @@ TypeScript + JSX를 쓰려면 .tsx 확장자가 필요합니다.
 JS 코드에서는 문자열을 그대로 사용했습니다.
 TypeScript에서는 명확한 타입을 정의해야 합니다.
 
-- 선택지 타입은 "rock", "paper", "scissors" 중 하나가 되게 해주세요.
-- 결과 타입은 "win", "lose", "draw" 중 하나가 되게 해주세요.
-- 점수 타입은 user와 computer를 가지며 숫자 타입이 되게 해주세요. (ex: { user: ??, computer: ?? })
+- 선택지(Choice) 타입은 "rock", "paper", "scissors" 중 하나가 되게 해주세요.
+- 결과(Result) 타입은 "win", "lose", "draw" 중 하나가 되게 해주세요.
+- 점수(Score) 타입은 user와 computer를 가지며 숫자 타입이 되게 해주세요. (ex: { user: ??, computer: ?? })
 
 ### 문제 3. useState에 타입 추가
 
