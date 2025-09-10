@@ -1,6 +1,6 @@
 ## 가위바위보 미니 프로젝트
 
-- npx create-vite@latest my-app --template react-ts
+- npx create-vite@latest rps-mini --template react-ts
 
 ## 📝 실습 과제: js를 ts로 리팩토링
 
