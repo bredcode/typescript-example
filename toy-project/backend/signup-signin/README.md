@@ -79,7 +79,7 @@ app.post("/signup", async (req, res) => {
     // 위에서 받은 password는 아래와 같이 해싱한다 (암호가 그대로 노출됨을 방지)
     const passwordHash = await bcrypt.hash(password, 10);
 
-    // users에 key는 id, value는 id, name, passwordHash가 들어가도록 한다.
+    // users에 key는 id, value는 id, name, passwordHash가  해당 오브젝트의 속성으로 들어가도록 한다.
     // 작성
 
     // generateToken을 이용하여 토큰을 생성한다 (id와 name을 토큰 생성에 사용)
