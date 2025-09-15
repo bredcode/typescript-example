@@ -73,7 +73,7 @@ app.post("/signup", async (req, res) => {
       return res.status(400).json({ message: "id, password, name은 필수입니다." });
     }
 
-    // 위와 마찬가지로, users 오브젝트에 해당 id가 존재하면 "이미 존재하는 id입니다." 라는 400 에러를 전달한다.
+    // 위와 마찬가지로, users 오브젝트에 해당 id가 존재하면 "이미 존재하는 id입니다." 라는 409 에러를 전달한다.
     // 작성
 
     // 위에서 받은 password는 아래와 같이 해싱한다 (암호가 그대로 노출됨을 방지)
