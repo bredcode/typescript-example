@@ -1,4 +1,3 @@
-// jwtGenerator.js
 require("dotenv").config(); // .env 파일 로드
 const jwt = require("jsonwebtoken");
 
